@@ -8,9 +8,9 @@ TextFormField buildTextFormField(usernameController, focusNode,
     {required onSubmit}) {
   return TextFormField(
     controller: usernameController,
+    focusNode: focusNode,
     autofocus: true,
     textInputAction: TextInputAction.search,
-    focusNode: focusNode,
     onFieldSubmitted: (value) {
       onSubmit(value);
     },

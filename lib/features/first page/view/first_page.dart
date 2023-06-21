@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:github_api_fetch/common_controllers/get_state_controller.dart';
 import 'package:github_api_fetch/utils/helper_function.dart';
 
 import '../widgets/body.dart';
@@ -13,6 +15,7 @@ class FirstPage extends StatefulWidget {
 class _FirstPageState extends State<FirstPage> {
   final _usernameController = TextEditingController();
   final _focusNode = FocusNode();
+  final _formKey = GlobalKey<FormState>();
 
   @override
   void dispose() {
@@ -23,12 +26,14 @@ class _FirstPageState extends State<FirstPage> {
 
   @override
   Widget build(BuildContext context) {
+    Get.put(UserController());
+
     return GestureDetector(
       onTap: () {
         AppHelpers.unfocusNodes([_focusNode]);
       },
       child: Scaffold(
-        body: buildBody(context, _usernameController, _focusNode),
+        body: buildBody(context, _usernameController, _focusNode, _formKey),
       ),
     );
   }
