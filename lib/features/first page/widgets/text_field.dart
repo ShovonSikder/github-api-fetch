@@ -3,24 +3,23 @@ import 'package:github_api_fetch/constants/app_paths.dart';
 import 'package:github_api_fetch/constants/app_values.dart';
 
 import '../../../constants/app_strings.dart';
-import '../../../utils/helper_function.dart';
 
-TextFormField buildTextFormField(usernameController, focusNode) {
+TextFormField buildTextFormField(usernameController, focusNode,
+    {required onSubmit}) {
   return TextFormField(
     controller: usernameController,
     autofocus: true,
     textInputAction: TextInputAction.search,
     focusNode: focusNode,
-    onFieldSubmitted: (v) {
-      AppHelpers.unfocusNodes([focusNode]);
-      print(v);
+    onFieldSubmitted: (value) {
+      onSubmit(value);
     },
     decoration: InputDecoration(
       labelText: AppStrings.username,
       prefixIcon: Padding(
         padding: EdgeInsets.all(AppValues.commonPadding),
         child: Image.asset(
-          AppPaths.githubLogoImgPaths,
+          AppPaths.githubLogoImg,
           height: AppValues.logoHeightInTextfield,
           fit: BoxFit.contain,
         ),

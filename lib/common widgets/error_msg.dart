@@ -3,14 +3,14 @@ import 'package:github_api_fetch/constants/app_paths.dart';
 import 'package:github_api_fetch/constants/app_values.dart';
 
 class ErrorMsg extends StatelessWidget {
-  String ErrImgPath;
+  String errImgPath;
   String msg;
   String subMsg;
   Widget action;
 
   ErrorMsg({
     super.key,
-    this.ErrImgPath = AppPaths.errorImgPaths,
+    this.errImgPath = AppPaths.errorImg,
     required this.msg,
     this.subMsg = '',
     required this.action,
@@ -24,7 +24,7 @@ class ErrorMsg extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: Image.asset(
-            ErrImgPath,
+            errImgPath,
             height: AppValues.errorImgHeight,
             width: AppValues.errorImgWidth,
             fit: BoxFit.contain,
@@ -40,7 +40,7 @@ class ErrorMsg extends StatelessWidget {
         ),
         Text(
           subMsg,
-          textAlign: TextAlign.center,
+          textAlign: TextAlign.left,
           style: TextStyle(
             color: Colors.grey,
           ),

@@ -13,6 +13,7 @@ class FirstPage extends StatefulWidget {
 class _FirstPageState extends State<FirstPage> {
   final _usernameController = TextEditingController();
   final _focusNode = FocusNode();
+
   @override
   void dispose() {
     super.dispose();
