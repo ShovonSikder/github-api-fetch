@@ -23,6 +23,8 @@ class HomeController {
           repos.add(ReposModel.fromJson(obj));
         }
         Get.find<UserController>().initReposList(repos.cast<ReposModel>());
+        print('Home Controller: ${response.data}');
+
         return repos;
         // return UserModel.fromJson(response.data);
       } else {

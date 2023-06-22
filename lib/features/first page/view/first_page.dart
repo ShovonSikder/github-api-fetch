@@ -27,7 +27,6 @@ class _FirstPageState extends State<FirstPage> {
   @override
   Widget build(BuildContext context) {
     Get.put(UserController());
-
     return GestureDetector(
       onTap: () {
         AppHelpers.unfocusNodes([_focusNode]);

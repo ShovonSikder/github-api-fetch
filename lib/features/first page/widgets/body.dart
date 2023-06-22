@@ -52,6 +52,7 @@ void _fetchUser(
     EasyLoading.dismiss();
     Get.to(() => const HomePage());
   } catch (e) {
+    EasyLoading.dismiss();
     print(e.toString());
     AppHelpers.showMsgDialog(
       context,
@@ -62,6 +63,5 @@ void _fetchUser(
         },
       ),
     );
-    EasyLoading.dismiss();
   }
 }

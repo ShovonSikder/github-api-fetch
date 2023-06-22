@@ -8,8 +8,8 @@ TextFormField buildTextFormField(usernameController, focusNode,
     {required onSubmit}) {
   return TextFormField(
     controller: usernameController,
-    focusNode: focusNode,
     autofocus: true,
+    focusNode: focusNode,
     textInputAction: TextInputAction.search,
     onFieldSubmitted: (value) {
       onSubmit(value);

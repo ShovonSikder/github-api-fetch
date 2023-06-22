@@ -26,4 +26,15 @@ class AppStrings {
   static var emptySuggestion = '\u{2022} No dat found in the database';
 
   static var reload = "Reload";
+
+  static var accessDenied = "Access Denied";
+
+  static var accessDeniedSuggestion =
+      "\u{2022} You don't have permission to view this data\n\u{2022} Check if you've crossed the limits";
+
+  static var internalServerError = "Internal Server Error";
+  static var internalServerErrorSuggestion =
+      "\u{2022} Make sure the server is working!";
+
+  static String followers = "followers";
 }

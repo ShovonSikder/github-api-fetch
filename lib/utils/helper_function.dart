@@ -18,30 +18,34 @@ class AppHelpers {
   }
 
   //function to show dialog
-  static void showMsgDialog(context, Widget content) => showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-            title: Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                IconButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  icon: Text(
-                    'X',
-                    style: TextStyle(
-                      fontSize: AppValues.fontSize_20,
-                      color: Colors.grey,
+  static void showMsgDialog(context, Widget content, {largeDialog = false}) =>
+      showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+                insetPadding: largeDialog
+                    ? EdgeInsets.all(AppValues.largeDialogInsetPadding)
+                    : EdgeInsets.symmetric(horizontal: 40, vertical: 24),
+                title: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    IconButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      icon: Text(
+                        'X',
+                        style: TextStyle(
+                          fontSize: AppValues.fontSize_20,
+                          color: Colors.grey,
+                        ),
+                      ),
                     ),
-                  ),
+                  ],
                 ),
-              ],
-            ),
-            titlePadding:
-                const EdgeInsets.symmetric(horizontal: 8).copyWith(top: 8),
-            content: content,
-          ));
+                titlePadding:
+                    const EdgeInsets.symmetric(horizontal: 8).copyWith(top: 8),
+                content: content,
+              ));
 
   //convert exceptions to readable messages
   static Widget exceptionToErrorWidget(Object e,
@@ -52,6 +56,16 @@ class AppHelpers {
           errImgPath: AppPaths.brokenRocketImg,
           msg: AppStrings.noInternet,
           subMsg: AppStrings.noInternetSuggestion,
+          action: CustomOutlineButton(
+            onPressed: onAction,
+            txt: actionTxt,
+          ),
+        );
+      case EmptyValueException:
+        return ErrorMsg(
+          errImgPath: AppPaths.emptyFile,
+          msg: AppStrings.empty,
+          subMsg: AppStrings.emptySuggestion,
           action: CustomOutlineButton(
             onPressed: onAction,
             txt: actionTxt,
@@ -72,19 +86,29 @@ class AppHelpers {
                     txt: actionTxt,
                   ),
                 );
+              case 403:
+                return ErrorMsg(
+                  errImgPath: AppPaths.restrictedImg,
+                  msg: AppStrings.accessDenied,
+                  subMsg: AppStrings.accessDeniedSuggestion,
+                  action: CustomOutlineButton(
+                    onPressed: onAction,
+                    txt: actionTxt,
+                  ),
+                );
+              case 500:
+                return ErrorMsg(
+                  errImgPath: AppPaths.serverErrorImg,
+                  msg: AppStrings.internalServerError,
+                  subMsg: AppStrings.accessDeniedSuggestion,
+                  action: CustomOutlineButton(
+                    onPressed: onAction,
+                    txt: actionTxt,
+                  ),
+                );
               //TODO:other cases of dio
             }
         }
-      case EmptyValueException:
-        return ErrorMsg(
-          errImgPath: AppPaths.emptyFile,
-          msg: AppStrings.empty,
-          subMsg: AppStrings.emptySuggestion,
-          action: CustomOutlineButton(
-            onPressed: onAction,
-            txt: actionTxt,
-          ),
-        );
     }
     return ErrorMsg(
       msg: AppStrings.somethingWrong,
