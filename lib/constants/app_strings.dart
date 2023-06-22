@@ -24,4 +24,6 @@ class AppStrings {
   static var empty = 'No Data Found';
 
   static var emptySuggestion = '\u{2022} No dat found in the database';
+
+  static var reload = "Reload";
 }

@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:github_api_fetch/common%20widgets/error_msg.dart';
 import 'package:github_api_fetch/common_controllers/get_state_controller.dart';
-import 'package:github_api_fetch/constants/app_paths.dart';
 import 'package:github_api_fetch/constants/app_strings.dart';
+import 'package:github_api_fetch/core/exceptions/empty_value_exception.dart';
 import 'package:github_api_fetch/features/home%20page/controllers/home_controler.dart';
 import 'package:github_api_fetch/utils/helper_function.dart';
 
@@ -33,18 +32,12 @@ class _HomePageState extends State<HomePage> {
                           .toList(),
                     ))
                 : Center(
-                    child: ErrorMsg(
-                        errImgPath: AppPaths.emptyFile,
-                        msg: AppStrings.empty,
-                        subMsg: AppStrings.emptySuggestion,
-                        action: OutlinedButton(
-                          onPressed: () {
-                            setState(() {});
-                          },
-                          child: Text(
-                            AppStrings.retry,
-                          ),
-                        )),
+                    child: AppHelpers.exceptionToErrorWidget(
+                        EmptyValueException(AppStrings.empty), onAction: () {
+                      setState(
+                        () {},
+                      );
+                    }, actionTxt: AppStrings.reload),
                   );
           }
           if (snapshot.hasError) {

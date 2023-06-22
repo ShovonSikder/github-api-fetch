@@ -2,10 +2,12 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:github_api_fetch/common%20widgets/custom_outline_button.dart';
 import 'package:github_api_fetch/common%20widgets/error_msg.dart';
 import 'package:github_api_fetch/constants/app_paths.dart';
 import 'package:github_api_fetch/constants/app_strings.dart';
 import 'package:github_api_fetch/constants/app_values.dart';
+import 'package:github_api_fetch/core/exceptions/empty_value_exception.dart';
 
 class AppHelpers {
   //function to unfocus text fields
@@ -50,9 +52,9 @@ class AppHelpers {
           errImgPath: AppPaths.brokenRocketImg,
           msg: AppStrings.noInternet,
           subMsg: AppStrings.noInternetSuggestion,
-          action: OutlinedButton(
+          action: CustomOutlineButton(
             onPressed: onAction,
-            child: Text(actionTxt),
+            txt: actionTxt,
           ),
         );
       case DioException:
@@ -65,21 +67,31 @@ class AppHelpers {
                   errImgPath: AppPaths.telescopeImg,
                   msg: AppStrings.invalidUsername,
                   subMsg: AppStrings.invalidUsernameSuggestion,
-                  action: OutlinedButton(
+                  action: CustomOutlineButton(
                     onPressed: onAction,
-                    child: Text(actionTxt),
+                    txt: actionTxt,
                   ),
                 );
               //TODO:other cases of dio
             }
         }
+      case EmptyValueException:
+        return ErrorMsg(
+          errImgPath: AppPaths.emptyFile,
+          msg: AppStrings.empty,
+          subMsg: AppStrings.emptySuggestion,
+          action: CustomOutlineButton(
+            onPressed: onAction,
+            txt: actionTxt,
+          ),
+        );
     }
     return ErrorMsg(
       msg: AppStrings.somethingWrong,
       subMsg: AppStrings.somethingWrongSuggestion,
-      action: OutlinedButton(
+      action: CustomOutlineButton(
         onPressed: onAction,
-        child: Text(actionTxt),
+        txt: actionTxt,
       ),
     );
   }
