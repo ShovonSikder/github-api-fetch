@@ -4,4 +4,5 @@ class AppPaths {
 
   static const String brokenRocketImg = 'assets/images/broken_rocket.png';
   static const String telescopeImg = 'assets/images/telescope.png';
+  static const String emptyFile = 'assets/images/empty_file.png';
 }

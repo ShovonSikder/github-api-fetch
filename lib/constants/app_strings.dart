@@ -18,4 +18,10 @@ class AppStrings {
   static var invalidUsername = 'Invalid Username';
   static var invalidUsernameSuggestion =
       '\u{2022} Can\'t find the user\n\u{2022} Try again with a valid username';
+
+  static var retry = 'Retry';
+
+  static var empty = 'No Data Found';
+
+  static var emptySuggestion = '\u{2022} No dat found in the database';
 }

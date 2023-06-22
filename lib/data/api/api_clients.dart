@@ -10,4 +10,9 @@ class ApiClients {
     final url = apiHelper.getUserURL(baseURL, username);
     return dio.get(Uri.parse(url).toString());
   }
+
+  Future<Response> fetchUserRepo(username) {
+    final url = apiHelper.getUserRepoURL(baseURL, username);
+    return dio.get(Uri.parse(url).toString());
+  }
 }
