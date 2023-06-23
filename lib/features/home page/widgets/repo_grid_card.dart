@@ -47,7 +47,7 @@ class RepoGridCard extends StatelessWidget {
               ),
             ),
             Text(
-              repo.owner!.login ?? '',
+              '${repo.owner!.login ?? ''} | ${repo.createdAt!.split(AppValues.repoDateSplitPatter)[0]}',
               textAlign: TextAlign.left,
               style: const TextStyle(
                 color: Colors.grey,

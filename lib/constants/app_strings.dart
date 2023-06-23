@@ -37,4 +37,10 @@ class AppStrings {
       "\u{2022} Make sure the server is working!";
 
   static String followers = "followers";
+
+  static String all = "All";
+  static String byDate = "By Date";
+  static String byName = "By Name";
+
+  static var filtering = "Filtering";
 }

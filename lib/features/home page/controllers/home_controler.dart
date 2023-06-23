@@ -22,7 +22,8 @@ class HomeController {
         for (dynamic obj in response.data) {
           repos.add(ReposModel.fromJson(obj));
         }
-        Get.find<UserController>().initReposList(repos.cast<ReposModel>());
+        Get.find<UserController>()
+            .initReposList(repos.cast<ReposModel>(), isApi: true);
         print('Home Controller: ${response.data}');
 
         return repos;

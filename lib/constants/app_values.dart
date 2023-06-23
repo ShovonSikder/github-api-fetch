@@ -33,4 +33,10 @@ class AppValues {
   static var narrowBorder = 0.1;
 
   static double largeDialogInsetPadding = 20.0;
+
+  static var containerButtonBorder = 0.3;
+
+  static double containerButtonBorderRadius = 10.0;
+
+  static String repoDateSplitPatter = 'T';
 }

@@ -10,11 +10,9 @@ class RepoListTile extends StatelessWidget {
   const RepoListTile({
     super.key,
     required this.repo,
-    this.rawTile = false,
   });
 
   final ReposModel repo;
-  final bool rawTile;
 
   @override
   Widget build(BuildContext context) {
@@ -57,6 +55,8 @@ class RepoListTile extends StatelessWidget {
             padding: AppValues.repoListTileLeadingImgPadding,
             clipRadius: AppValues.repoListTileLeadingImgClipR,
           ),
+          trailing:
+              Text(repo.createdAt!.split(AppValues.repoDateSplitPatter)[0]),
         ),
       ),
     );

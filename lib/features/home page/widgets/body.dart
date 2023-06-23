@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:github_api_fetch/common_controllers/get_state_controller.dart';
 import 'package:github_api_fetch/constants/app_strings.dart';
 import 'package:github_api_fetch/constants/app_values.dart';
+import 'package:github_api_fetch/features/home%20page/widgets/filter.dart';
 import 'package:github_api_fetch/features/home%20page/widgets/user_image.dart';
 
 import '../../../core/enums/view_mode_enum.dart';
@@ -26,6 +27,7 @@ SafeArea buildBody(UserController userController) {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
+                  //view mode switch
                   IconButton(
                     onPressed: () {
                       viewMode == ViewMode.list
@@ -39,7 +41,9 @@ SafeArea buildBody(UserController userController) {
                       viewMode == ViewMode.list ? Icons.grid_view : Icons.list,
                     ),
                   ),
-                  buildUserInfo(userController.userModel.value),
+                  Filter(),
+                  Expanded(
+                      child: buildUserInfo(userController.userModel.value)),
                 ],
               ),
             ),
@@ -54,30 +58,31 @@ SafeArea buildBody(UserController userController) {
 Row buildUserInfo(user) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.end,
+    mainAxisSize: MainAxisSize.min,
     children: [
-      SizedBox(
-        width: 200,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: [
-            Text(
+      Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+          SizedBox(
+            width: 150,
+            child: Text(
               user!.name ?? '',
               textAlign: TextAlign.end,
               style: const TextStyle(
                 fontWeight: FontWeight.bold,
               ),
             ),
-            Text(
-              '${user!.followers > 999 ? '${user!.followers / 1000}K' : user!.followers ?? '0'} ${AppStrings.followers}',
-              textAlign: TextAlign.end,
-              style: const TextStyle(
-                color: Colors.grey,
-                fontStyle: FontStyle.italic,
-              ),
+          ),
+          Text(
+            '${user!.followers > 999 ? '${user!.followers / 1000}K' : user!.followers ?? '0'} ${AppStrings.followers}',
+            textAlign: TextAlign.end,
+            style: const TextStyle(
+              color: Colors.grey,
+              fontStyle: FontStyle.italic,
             ),
-          ],
-        ),
+          ),
+        ],
       ),
       UserImage(
         imgURL: user.avatarUrl ?? '',
