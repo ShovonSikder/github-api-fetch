@@ -12,4 +12,5 @@ class AppPaths {
   static const String restrictedImg = "assets/images/restricted.png";
 
   static var serverErrorImg = "assets/images/server_error.png";
+  static var githubTxtLogoImg = "assets/images/github_txt_logo.png";
 }

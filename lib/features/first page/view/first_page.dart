@@ -32,11 +32,6 @@ class _FirstPageState extends State<FirstPage> {
   }
 
   @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-  }
-
-  @override
   void dispose() {
     super.dispose();
     _usernameController.dispose();
