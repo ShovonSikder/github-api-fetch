@@ -1,16 +1,25 @@
-# github_api_fetch
+# Github API Fetcher
 
-A new Flutter project.
+A Flutter app to fetch github apis.
 
-## Getting Started
+## The app was developed with the following features in min
 
-This project is a starting point for a Flutter application.
+1. First Page : https://api.github.com/users/{userName}
+   - Here the user will input a username and after that you go to the home page.
+   - Make sure the user can toggle between light and dark themes.
+2. Home Page : https://api.github.com/users/{userName}/repos
+   - In home page show user all the necessary information.
+   - Show the user repository list in a list view and grid view, and give the option to switch between gridview and listview.
+   - Implement a filter option where the user can filter the repository list by date, name, start etc.
+3. Repository Details:
+   - When a user taps on a repository, display detailed information about the repository.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## The following guidelines were followed to write code
+- Utilize the GitHub REST API for data retrieval (https://docs.github.com/en/rest).
+- Use the latest flutter version.
+- Use dio for api calling.
+- Use Getx for state management.
+- Make sure to commit your progress in git from initial setup.
+- Ensure the application has a clean and intuitive user interface.
+- Follow best practices for code organisation, readability, and maintainability.
+- Implement error handling and provide appropriate feedback to the user.
