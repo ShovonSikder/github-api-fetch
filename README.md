@@ -1,6 +1,6 @@
 # Github API Fetcher
 
-A Flutter app to fetch github apis.
+A Flutter app to fetch github apis. Checkout the video [here](https://youtu.be/S4YsR3LZ7Z4)
 
 ## The app was developed with the following features in mind
 
