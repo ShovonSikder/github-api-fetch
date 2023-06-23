@@ -2,7 +2,7 @@
 
 A Flutter app to fetch github apis.
 
-## The app was developed with the following features in min
+## The app was developed with the following features in mind
 
 1. First Page : https://api.github.com/users/{userName}
    - Here the user will input a username and after that you go to the home page.
